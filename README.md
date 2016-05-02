@@ -45,7 +45,7 @@ IP | The IP address for which you want to retrieve the location
 require 'net/http'
 require 'json'
 
-loc = Net::HTTP.get('https://ipapi.co/8.8.8.8/json/')
+loc = Net::HTTP.get(URI('https://ipapi.co/8.8.8.8/json/'))
 puts JSON.parse(loc)
 ```
 
@@ -68,9 +68,9 @@ print loc.json()
 
 `Node.js`
 ```
-var http = require('http');
+var https = require('https');
 
-http.get('https://ipapi.co/8.8.8.8/json/', function(resp){
+https.get('https://ipapi.co/8.8.8.8/json/', function(resp){
     var body = ''
     resp.on('data', function(data){
         body += data;
